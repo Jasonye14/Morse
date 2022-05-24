@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="Code.css">
+    <title>Morse Code</title>
+</head>
+<body>
+    <p class="cipher">
+      </p>
+    <div class="btn-2">
+        <input type="text" id="userInput"/>
+            <a href="javascript:username();" ><span>Enter</span></a>
+          </div>
+    </div>
+    
+    <table align="right">
+        <tr>
+          <td>A .-</td>
+          <td>B -...</td>
+          <td>C -.-.</td>
+          <td>D -..</td>
+        </tr>
+        <tr>
+          <td>E .</td>
+          <td>F ..-.</td>
+          <td>G --.</td>
+          <td>H ....</td>
+        </tr>
+        <tr>
+            <td>I ..</td>
+            <td>J .---</td>
+            <td>K -.-</td>
+            <td>L .-..</td>
+          </tr>
+        <tr>
+            <td>M --</td>
+            <td>N -.</td>
+            <td>O ---</td>
+            <td>P .--.</td>
+          </tr>
+          <tr>
+            <td>Q --.-</td>
+            <td>R .-.</td>
+            <td>S ...</td>
+            <td>T -</td>
+          </tr>
+          <tr>
+            <td>U ..-</td>
+            <td>V ...-</td>
+            <td>W .--</td>
+            <td>X -..-</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Y -.--</td>
+            <td>Z --..</td>
+            <td></td> 
+          </tr>
+          
+      </table>
+
+</body>
+<script>
+    //Morse Code Table
+    const CodeTable = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....","..", ".---", 
+                        "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", 
+                        "..-", "...-", ".--", "-..-", "-.--", "--.."];  
+
+    // Random Quotes array
+    const quotes = [
+
+    "One of my most productive days was throwing away 1,000 lines of code" ,
+ 
+    "I have always wished for my computer to be as easy to use as my telephone; my wish has come true because I can no longer figure out how to use my telephone",
+
+    "When in doubt, use brute force",
+
+    "Talk is cheap. Show me the code" 
+    ];
+
+    // random array generator https://codesandbox.io/s/1z122?file=/src/App.js
+    const words = [ "Abuse", "Adult", "Agent","Anger","Apple",
+                    "Award","Basis","Beach","Birth","Block","Blood","Board","Brain","Bread","Break","Brown","Buyer","Cause","Chain","Chair","Chest","Chief","Child","China",
+                    "Claim","Class","Clock","Coach","Coast","Cover","Cream","Crime","Cross","Crowd","Crown","Cycle","Dance","Death","Depth","Doubt","Draft","Drama","Dream",
+                    "Dress","Drink","Drive","Earth","Enemy","Entry","Error","Event","Fault","Field","Fight","Final","Floor","Focus","Force","Frame","Frank","Front","Fruit",
+                    "Glass","Grant","Grass","Green","Guide","Heart","Henry","Horse","House","Image","Index","Input","Issue","Japan","Jones","Judge","Knife","Laura","Layer","Level","Lewis","Limit",
+                    "Lunch","Major","March","Match","Metal","Model","Money","Month","Motor","Mouth","Music","Night","Noise","North","Novel","Nurse","Offer","Order","Other","Owner",
+                    "Panel","Paper","Party","Peace","Peter","Phase","Phone","Piece","Pitch","Place","Plane","Plant","Plate","Point","Pound","Power","Press","Price",
+                    "Pride","Prize","Proof","Queen","Radio","Range","Ratio","Reply","Right","River","Round","Route","Rugby","Scale","Scene","Scope","Score","Sense",
+                    "Shape","Share","Sheep","Sheet","Shift","Shirt","Shock","Sight","Simon","Skill","Sleep","Smith","Smoke","Sound","South","Space","Speed","Spite","Sport",
+                    "Squad","Staff","Stage","Start","State","Steam","Stock","Stone","Store","Study","Stuff","Sugar","Table","Taste","Terry","Theme","Thing","Title",
+                    "Touch","Tower","Track","Trade","Train","Trial","Trust","Truth","Uncle","Union","Unity","Value","Video","Visit","Voice","Waste","Watch","Water",
+                    "While","White","Whole","Woman","World","Youth","Alcon","Aught","Hella","Admit","Ought","Thame","There","Thine","Thine","Where","Which","Whose","Whoso","Yours"];
+
+    //random position
+    var position = Math.floor(Math.random()*words.length);
+    // random quotes from araay
+    var quoteString = JSON.stringify(words[position]).replace(/["]+/g, '');
+    // put the quote in individaul word arrays
+    function wordArray(){
+        var words = quoteString.split(" ");
+        return words;
+    }
+    var wordsGlobal = wordArray();
+    //scrmables the individual words
+    function scramble(words){
+        for(var i=0; i<words.length; i++){
+            words[i] = shuffle(words[i].toUpperCase()); // shuffle and converts it to uppercase
+        }
+        return words;
+    }
+    function getRandomInt(n) {
+        return Math.floor(Math.random() * n);
+    }
+    function shuffle(s) {
+        var arr = s.split('');           // Convert String to array
+        var n = arr.length;              // Length of the array
+        s = arr.join('');                // Convert Array to string
+        return s;                        // Return shuffled string
+    }
+    function nextChar(c) {
+        return String.fromCharCode(c.charCodeAt(0) + 1);
+    }
+
+    var scrambledArray = scramble(wordsGlobal);
+    //generator, convert quotes in to morse code
+    function generate(string){
+        string = string.toString(string);
+        var codeString;
+        var key = "A";
+        for(var i=0; i<26; i++){
+            codeString = string.replaceAll(key, CodeTable[i]);
+            console.log(codeString);
+            console.log("key: " + key);
+            console.log("code: " + CodeTable[i]);
+            string = codeString;
+            key = nextChar(key);
+        }
+        
+        return codeString;
+    }
+    for(var i=0; i<scrambledArray.length; i++){
+        scrambledArray[i] = generate(scrambledArray[i]);
+    }
+    console.log(quoteString);
+
+    $(".cipher").text(scrambledArray);
+
+    var input;
+    function username()
+    {
+    input = document.getElementById("userInput").value;
+    //alert(input);
+    console.log(input);
+
+    if(input.toUpperCase() == quoteString.toUpperCase()){
+        alert("correct");
+    }
+    else {
+        alert("incorrect");
+    }
+
+    }
+
+
+</script>
+</html>
