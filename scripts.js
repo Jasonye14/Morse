@@ -1,10 +1,9 @@
-
 const NUMBER_OF_GUESSES = 4;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
 let rightGuessString = WORDS[position];
-console.log(rightGuessString);
+//console.log(rightGuessString);
 
 function initBoard() {
     let board = document.getElementById("game-board");
@@ -58,7 +57,7 @@ function checkGuess () {
     
     for (const val of currentGuess) {
         guessString += val
-        console.log(guessString);
+        //console.log(guessString);
     }
 
     if (guessString.length != 5) {
@@ -74,24 +73,24 @@ function checkGuess () {
     
     for (let i = 0; i < 5; i++) {
         let letterColor = ''
-        console.log(i);
+        //console.log(i);
         let box = row.children[i]
         let letter = currentGuess[i]
-        console.log(i);
+        //console.log(i);
         let letterPosition = rightGuess.indexOf(currentGuess[i])
-        console.log(letterPosition + "  lp"); 
+        //console.log(letterPosition + "  lp"); 
         // is letter in the correct guess
         if (letterPosition === -1 && !(letterPosition === 0)) {
             letterColor = 'grey'
         } else {
-            console.log(i + "  inside if");
+            //console.log(i + "  inside if");
             // now, letter is definitely in word
             // if letter index and right guess index are the same
             // letter is in the right position 
             if (currentGuess[i] === rightGuess[i]) {
-                console.log(i);
-                console.log(currentGuess[i]);
-                console.log(rightGuess[i]);
+                //console.log(i);
+                //console.log(currentGuess[i]);
+                //console.log(rightGuess[i]);
                 // shade green 
                 letterColor = 'green'
             } 

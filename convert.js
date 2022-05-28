@@ -40,9 +40,9 @@ var codeString;
 var key = "A";
 for(var i=0; i<26; i++){
 codeString = string.replaceAll(key, CodeTable[i]);
-console.log(codeString);
-console.log("key: " + key);
-console.log("code: " + CodeTable[i]);
+// console.log(codeString);
+// console.log("key: " + key);
+// console.log("code: " + CodeTable[i]);
 string = codeString;
 key = nextChar(key);
 }
@@ -52,6 +52,6 @@ return codeString;
 for(var i=0; i<scrambledArray.length; i++){
 scrambledArray[i] = generate(scrambledArray[i]);
 }
-console.log(quoteString);
+//console.log(quoteString);
 
 $(".cipher").text(scrambledArray);
