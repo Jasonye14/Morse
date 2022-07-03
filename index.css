@@ -87,7 +87,6 @@ input {
   width: 100%;
   flex-direction: column;
   align-items: center;
-  border: 2px solid aqua;
 }
 
 #keyboard-cont div {
@@ -144,7 +143,7 @@ a {
       background-color: darkgray;
       height: 60px;
       color: white;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 700;
       padding: 0.5rem;
       margin: 0 2px;
