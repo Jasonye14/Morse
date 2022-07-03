@@ -144,10 +144,10 @@ a {
       background-color: darkgray;
       height: 60px;
       color: white;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 700;
       padding: 0.5rem;
-      margin: 0 1px;
+      margin: 0 2px;
       cursor: pointer;
       text-transform: uppercase;
       /* background-color: #636363; */
