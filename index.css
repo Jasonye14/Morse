@@ -141,6 +141,9 @@ a {
       margin: 1rem 0rem;
     }
     .keyboard-button {
+      background-color: darkgray;
+      height: 60px;
+      color: white;
       font-size: 0.8rem;
       font-weight: 700;
       padding: 0.5rem;
