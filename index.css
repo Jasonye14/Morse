@@ -82,6 +82,7 @@ input {
 }
 
 #keyboard-cont {
+  visibility: hidden;
   margin: 2rem 0;
   display: inline-flex;
   width: 100%;
@@ -124,11 +125,38 @@ a {
   font-size: 15px;
 }
 /* mobile reponsiveness */
+@media only screen and (max-width: 760px) {
+  #MorseCode-Table {
+    position: relative;
+    bottom: 0px;
+    padding: 10px 10px;
+  }
+  footer{
+    position: relative;
+  }
+  #keyboard-cont {
+    visibility: visible;
+    width: 95%;
+    margin: 1rem 0rem;
+  }
+  .keyboard-button {
+    background-color: darkgray;
+    height: 60px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin: 0 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    /* background-color: #636363; */
+    /* border-radius: 7px;  */
+  } 
+} 
 
 @media only screen and (max-width: 425px) {
     #MorseCode-Table {
       position: relative;
-      margin-right: 5%;
       bottom: 0px;
       padding: 10px 10px;
     }
@@ -136,6 +164,7 @@ a {
       position: relative;
     }
     #keyboard-cont {
+      visibility: visible;
       width: 95%;
       margin: 1rem 0rem;
     }
@@ -165,8 +194,8 @@ a {
     position: relative;
   }
   #keyboard-cont {
+    visibility: visible;
     margin: 1rem 0;
-
   }
   .keyboard-button {
     font-size: 1rem;
