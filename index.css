@@ -2,7 +2,18 @@
 body{
   background-color: black;
 }
-
+input {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  text-transform: capitalize;
+}
+a {
+  color: white;
+}
 .cipher{
     margin-left: 5%;
     margin-right: 5%;
@@ -13,42 +24,27 @@ body{
     font-size: 40px;
     text-align: center;
 }
-
 #MorseCode-Table{
   margin-right: 5%;
   margin-left: 5%;
 }
-
 .cells {
     letter-spacing: 1px;
     font-size: 20px;
     color: white;
 }
-
 td, th {
     border: 1px solid rgb(190,190,190);
     padding: 10px 20px;
 }
-
 td {
     text-align: center;
 }
-
 .input-boxes{
   border: 2px solid rgb(200,200,200);
   letter-spacing: 5px;
   color: white;
   margin-right: 50px;
-}
-
-input {
-  width: 40px;
-  height: 40px;
-  background-color: black;
-  color: white;
-  font-size: 30px;
-  text-align: center;
-  text-transform: capitalize;
 }
 
 #game-board {
@@ -58,7 +54,6 @@ input {
   color: white;
   padding: 10px 10px;
 }
-
 .letter-box {
   border: 2px solid gray;
   border-radius: 3px;
@@ -72,15 +67,12 @@ input {
   align-items: center;
   text-transform: uppercase;
 }
-
 .filled-box {
   border: 2px solid black;
 }
-
 .letter-row {
   display: flex;
 }
-
 #keyboard-cont {
   visibility: hidden;
   margin: 2rem 0;
@@ -89,15 +81,12 @@ input {
   flex-direction: column;
   align-items: center;
 }
-
 #keyboard-cont div {
   display: flex;
 }
-
 .second-row {
   margin: 0.5rem 0;
 }
-
 .keyboard-button {
   font-size: 1rem;
   font-weight: 700;
@@ -106,7 +95,6 @@ input {
   cursor: pointer;
   text-transform: uppercase;
 }
-
 footer {
   position: absolute;
   width:100%;
@@ -117,14 +105,40 @@ footer {
   color: white;
 }
 
-a {
-  color: white;
-}
-
 #credit{
   font-size: 15px;
 }
+
 /* mobile reponsiveness */
+@media only screen and (max-width: 1200px) {
+  #MorseCode-Table {
+    position: relative;
+    bottom: 0px;
+    padding: 10px 10px;
+  }
+  footer{
+    position: relative;
+  }
+  #keyboard-cont {
+    visibility: visible;
+    width: 95%;
+    margin: 1rem 0rem;
+  }
+  .keyboard-button {
+    background-color: darkgray;
+    height: 60px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin: 0 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    /* background-color: #636363; */
+    /* border-radius: 7px;  */
+  } 
+} 
+
 @media only screen and (max-width: 760px) {
   #MorseCode-Table {
     position: relative;
